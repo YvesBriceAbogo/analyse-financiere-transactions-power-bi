@@ -36,18 +36,24 @@ Avant d'utiliser ces scripts, créez dans Power BI Desktop deux paramètres de t
 
 Les frais absents du fichier source ne sont **pas imputés** : `fee_amount` reste vide. Les totaux de frais ne portent donc que sur les frais renseignés.
 
-La colonne `is_fee_missing` (vrai/faux) identifie ces transactions. Elle permet de mesurer leur nombre et de contrôler leur répartition.
+La colonne `is_fee_missing` (vrai/faux) identifie ces transactions. Elles sont très peu nombreuses (moins de 0,1 % des transactions), et leur effet sur le total des frais est négligeable.
 
-> Une version antérieure du projet remplaçait les frais manquants par la valeur forfaitaire 14,53. Cette imputation a été supprimée, car elle introduisait dans les totaux une valeur qui ne figure pas dans la source.
+**Constat :** sur les 28 111 transactions dont les frais dépassent 1, la taxe représente exactement 18 % des frais (arrondi au centime). Cette relation permettrait de reconstituer les frais manquants. Elle n'est volontairement pas appliquée, afin de ne pas introduire dans les totaux de valeur absente de la source.
 
 ## Traitement des montants
 
 | Colonne | Contenu |
 |---|---|
-| `amount` | Montant d'origine, **avec son signe** tel que présent dans le fichier source |
-| `amount_abs` | Valeur absolue du montant : volume de l'opération, quel que soit son sens |
+| `amount` | Montant d'origine, **avec son signe**, tel que présent dans le fichier source |
+| `amount_abs` | Valeur absolue du montant, utilisée par les mesures du rapport |
 
-Les deux colonnes sont conservées afin de ne pas perdre le sens des opérations. Les mesures de volume du rapport reposent sur `amount_abs`. Les mesures de flux net reposent sur `amount`.
+**Constat :** moins de 0,1 % des transactions présentent un montant négatif. Ces montants sont répartis sur plusieurs types d'opérations, y compris des types qui ne sont pas des sorties de fonds par nature, comme les dépôts. Le signe ne correspond donc pas à un sens d'opération fiable. Il est traité comme une **anomalie de saisie probable**.
+
+**Hypothèse retenue :** les mesures reposent sur `amount_abs`. Le montant d'origine est conservé afin de permettre le contrôle de ces lignes.
+
+## Doublons
+
+Le fichier source contient 69 identifiants de transaction en double. Pour chacun, une seule ligne est conservée : la plus complète, c'est-à-dire celle qui compte le moins de champs vides.
 
 ## Format des fichiers source
 
