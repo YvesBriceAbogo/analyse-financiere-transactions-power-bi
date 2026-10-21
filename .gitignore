@@ -1,0 +1,17 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fichiers temporaires Office et sauvegardes
+~$*
+*.tmp
+*.bak
+
+# Éditeurs de code
+.vscode/
+.idea/
+
+# Cache local Power BI (format projet .pbip)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
