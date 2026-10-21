@@ -24,6 +24,7 @@ Ces données sont publiées uniquement à des fins pédagogiques et de démonstr
 | Séparateur de colonnes | Virgule (`,`) |
 | Encodage | Windows-1252 (ANSI) |
 | Séparateur décimal | Point (`.`) |
+| Format des dates | `JJ-MM-AAAA` (exemple : `21-02-2025`) |
 | En-têtes | Première ligne |
 
 ## Structure de `finance_transactions.csv`
