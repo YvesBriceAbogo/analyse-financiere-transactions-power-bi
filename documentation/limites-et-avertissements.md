@@ -23,6 +23,7 @@
 - **Volumes en valeur absolue.** `Total Amount` et `Avg Transaction val` expriment des volumes d'opérations, pas des soldes.
 - **Frais.** `Total Fees` ne porte que sur les frais renseignés. Une version antérieure imputait 14,53 aux frais manquants. Cette règle a été abandonnée : le total 2026 est passé de 75 442,06 à 75 413,00.
 - **Taxe.** La taxe vaut 18 % des frais sur 28 111 lignes testées. Ce constat n'est pas appliqué pour reconstituer les frais manquants.
+- **Statuts des transactions.** `Total Amount` cumule toutes les transactions, quel que soit leur statut (Success, Failed, Pending). Les transactions en échec ou en attente représentent environ 14 % du volume en 2026.
 
 ## Interprétation des indicateurs
 
@@ -33,7 +34,7 @@
 
 ## Actualisation
 
-Le sous-titre du rapport, « Real Time Insights », ne correspond pas à un temps réel au sens strict. Les données proviennent de fichiers CSV actualisés **2 fois par jour** (11 h 30 et 17 h 00), à condition que le poste hébergeant la passerelle soit en ligne.
+Le sous-titre du rapport, « Real Time Insights », ne correspond pas à un temps réel au sens strict. Les données proviennent de fichiers CSV actualisés **2 fois par jour** (11 h 30 et 17 h 00, heure d'Afrique du Sud, UTC+2), à condition que le poste hébergeant la passerelle soit en ligne.
 
 ## Accès
 
