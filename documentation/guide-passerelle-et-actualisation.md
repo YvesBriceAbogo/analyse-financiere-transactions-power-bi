@@ -24,7 +24,7 @@ Actualisation planifiée
 | Type de passerelle | Standard (*On-premises data gateway*) |
 | Sources de données | 2 fichiers CSV (transactions et clients) |
 | Fréquence d'actualisation | **2 fois par jour : 11 h 30 et 17 h 00** |
-| Fuseau horaire | Celui défini dans les paramètres du modèle sémantique |
+| Fuseau horaire | Heure d'Afrique du Sud (UTC+2) |
 
 ## Configurer l'actualisation planifiée
 
@@ -32,7 +32,7 @@ Actualisation planifiée
 2. Cliquez sur **Paramètres**, puis **Connexion à la passerelle**.
 3. Sélectionnez la passerelle et vérifiez que les deux sources CSV sont **mappées**.
 4. Dans **Actualisation**, activez **Maintenir vos données à jour**.
-5. Ajoutez deux heures : **11:30** et **17:00**.
+5. Ajoutez deux heures : **11:30** et **17:00**, en vérifiant que le fuseau horaire sélectionné est celui d'Afrique du Sud.
 6. Enregistrez avec **Appliquer**.
 
 ## Conditions de fonctionnement
